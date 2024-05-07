@@ -1,0 +1,19 @@
+name: password-generato
+base: core22 
+version: '1.0.0' 
+summary: Generates a unique random password
+description: |
+  Generates a unique random password when your online provider 
+  requests a password change and you are out of options!
+
+grade: stable
+confinement: strict
+
+parts:
+  my-part:
+    # See 'snapcraft plugins'
+    plugin: nil
+    source:
+      - on amd64: dist/password-generator_1.0.0_amd64.deb
+      - on arm64: dist/password-generator_1.0.0_arm64.deb
+      - on armv7l: dist/password-generator_1.0.0_amdv7l.deb

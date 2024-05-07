@@ -1,0 +1,50 @@
+{
+  "name": "password-generator",
+  "version": "1.0.0",
+  "description": "Generates a unique random password when your online provider requests a password change and you are out of options!",
+  "main": "index.js",
+  "build": {
+    "appId": "biz.pingleware.password-generator",
+    "productName": "PasswordGenerator",
+    "win": {
+      "target": "portable",
+      "icon": "./assets/logo.png"
+    },
+    "linux": {
+      "target": "deb",
+      "category": "utility",
+      "icon": "./assets/logo.png"
+    },
+    "mac": {
+      "icon": "./assets/logo.icns"
+    }
+  },
+  "scripts": {
+    "start": "node .",
+    "help": "node . --help",
+    "start:18": "node . --length=18",
+    "start:google": "node . --provider=google --length=20 --strict=true",
+    "start:support": "node . --support=true",
+    "create:logo": "sudo chmod +x txt2image.sh && ./txt2image.sh 'PASSWORD GENERATOR! '",
+    "create:icns": "./icns_creator.sh assets/logo.png assets/logo",
+    "dist:win": "electron-builder --win --x64 --arm64 --ia32",
+    "dist:mac": "electron-builder --mac --universal",
+    "dist:linux": "electron-builder --linux --x64 --arm64 --armv7l",
+    "dist": "electron-builder -mwl"
+  },
+  "keywords": [
+    "password generator",
+    "pingleware"
+  ],
+  "author": "PRESSPAGE ENTERTAINMENT INC dba PINGLEWARE <maintainers@pinglewre.work>",
+  "license": "CC-BY-4.0",
+  "dependencies": {
+    "generate-password": "^1.7.1",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "electron": "^30.0.2",
+    "electron-builder": "^24.13.3"
+  },
+  "postinstall": "electron-builder install-app-deps"
+}
