@@ -98,18 +98,32 @@ After change linux target to deb, the following linux files become available in 
 
 ```
 password-generator_1.0.0_amd64.deb
-password-generator_1.0.0_arm64.deb
 password-generator_1.0.0_armv7l.deb
+password-generator_1.0.0_amd64.AppImage
+password-generator_1.0.0_armv7l.AppImage
+password-generator_1.0.0_amd64.snap
+password-generator_1.0.0_armv7l.snap
 ```
 
+To build the arm64 version of linux, which spawns a multipass VM,
+
+`npm run dist:linux:arm64`
+
+which will build
+
+```
+password-generator_1.0.0_arm64.deb
+password-generator_1.0.0_arm64.AppImage
+password-generator_1.0.0_arm64.snap
+```
 
 ## Password Rules
 
 The following table includes password rules for known online providers,
 
-| PROVIDER        | PASSWORD RULES                                                                                                                                                                                                                                                                                                                  |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| GOOGLE          | **Length:** Passwords must be 8 characters or longer.<br />**Complexity:** The password must contain letters, numbers, and special characters.<br />**Combination:** Make sure you don’t use predictable combinations of words, such as name, date of birth, or words combined with numbers like 123.        |
-| MICROSOFT       | At least 12 characters long but 14 or more is better.<br />A combination of uppercase letters, lowercase letters, numbers, and symbols.<br />Significantly different from your previous passwords.<br />Easy for you to remember but difficult for others to guess. Consider using a memorable phrase like "6MonkeysRLooking^". |
-| APPLE           | Apple requires that you use a strong password for your Apple ID—eight or more characters, including upper and lowercase letters and at least one number                                                                                                                                                                        |
-| MICROSOFT AZURE | Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character.<br />The value must be between 12 and 123 characters long.                                                                                                                                            |
+| PROVIDER        | PASSWORD RULES                                                                                                                                                                                                                                                                                                                  | OPTIONS                                        |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| GOOGLE          | **Length:** Passwords must be 8 characters or longer.<br />**Complexity:** The password must contain letters, numbers, and special characters.<br />**Combination:** Make sure you don’t use predictable combinations of words, such as name, date of birth, or words combined with numbers like 123.        | --provider=google --length=20 --strict=true    |
+| MICROSOFT       | At least 12 characters long but 14 or more is better.<br />A combination of uppercase letters, lowercase letters, numbers, and symbols.<br />Significantly different from your previous passwords.<br />Easy for you to remember but difficult for others to guess. Consider using a memorable phrase like "6MonkeysRLooking^". | --provider=microsoft --length=20 --strict=true |
+| APPLE           | Apple requires that you use a strong password for your Apple ID—eight or more characters, including upper and lowercase letters and at least one number                                                                                                                                                                        | --provider=apple --length=20 --strict=true     |
+| MICROSOFT AZURE | Password must have 3 of the following: 1 lower case character, 1 upper case character, 1 number, and 1 special character.<br />The value must be between 12 and 123 characters long.                                                                                                                                            | --provider=azure --length=20 --strict=true     |

@@ -11,7 +11,7 @@
       "icon": "./assets/logo.png"
     },
     "linux": {
-      "target": ["deb","AppImage"],
+      "target": ["deb","AppImage","snap"],
       "category": "utility",
       "icon": "./assets/logo.png"
     },
@@ -29,7 +29,8 @@
     "create:icns": "sudo chmod +x icns_creator.sh && ./icns_creator.sh assets/logo.png assets/logo",
     "dist:win": "electron-builder --win --x64 --arm64 --ia32",
     "dist:mac": "electron-builder --mac --universal",
-    "dist:linux": "electron-builder --linux --x64 --arm64 --armv7l",
+    "dist:linux": "electron-builder --linux --x64 --armv7l",
+    "dist:linux:arm64": "electron-builder --linux --arm64",
     "dist": "electron-builder -mwl",
     "build": "rm -frd dist && npm run dist:win && npm run dist:mac && npm run dist:linux"
   },
