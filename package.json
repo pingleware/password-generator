@@ -24,6 +24,8 @@
     "help": "node . --help",
     "start:18": "node . --length=18",
     "start:google": "node . --provider=google --length=20 --strict=true",
+    "start:renesantbank": "node . --provider=renesantbank --length=12 --strict=true",
+    "start:logingov": "node . --provider=logingov --length=16 --strict=true",
     "start:support": "node . --support=true",
     "create:logo": "sudo chmod +x txt2image.sh && ./txt2image.sh 'PASSWORD GENERATOR! '",
     "create:icns": "sudo chmod +x icns_creator.sh && ./icns_creator.sh assets/logo.png assets/logo",

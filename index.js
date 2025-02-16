@@ -5,10 +5,15 @@ const path = require('path');
 const os = require('os');
 
 const PROTECT = false;
-let LOCATION = path.join(os.homedir(),'passwords.json');
+const ROOT_DIR = path.join(os.homedir(),'.passwords'); 
+let LOCATION = path.join(ROOT_DIR,'passwords.json');
 
 if (PROTECT) {
 	LOCATION = '~/password.json';
+}
+
+if (!fs.existsSync(ROOT_DIR)) {
+    fs.mkdirSync(ROOT_DIR);
 }
 
 const yargs = require('yargs/yargs')
